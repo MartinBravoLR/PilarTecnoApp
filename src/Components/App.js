@@ -1,25 +1,22 @@
 import React from 'react';
 
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import "react-native-gesture-handler";
 
-import 'react-native-gesture-handler';
+///Redux Import
+import {Provider} from  'react-redux';
+import store from  '../redux/store';
 
+///Navigations Imports
 import { NavigationContainer } from '@react-navigation/native';
 import { AppStack } from '../Routes/stack';
 
 const App=() => {
   return (
-    <NavigationContainer>
-       <AppStack/>
-    </NavigationContainer>
+    <Provider store={store}>
+       <NavigationContainer>
+        <AppStack/>
+      </NavigationContainer>
+    </Provider>
   );}
 
 

@@ -1,12 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import {
-  Image,
-  Text,
   StyleSheet,
-  View,
-  Dimensions,
-  TouchableOpacity
 } from 'react-native';
 
 //Screens

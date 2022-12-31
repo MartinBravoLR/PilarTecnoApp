@@ -2,46 +2,41 @@ import React from 'react';
 
 import {
   Image,
-  Text,
   StyleSheet,
   View, 
-  Dimensions,
   TouchableOpacity
 } from 'react-native';
 
 import { Header} from '@rneui/themed';
 import { useNavigation } from '@react-navigation/native';
+import { Icon } from '@rneui/base';
+
+import {useDispatch} from  'react-redux';
+import {appActions} from  '../redux/appRedux';
 
 
 const HeaderApp=(props) => {
+
+  const dispatch=useDispatch()
+  const setAut=()=>{
+    dispatch(appActions.setUser(null))
+  }
+
     const {tittle = "PilarTecno",rightComponent,leftComponent}= props;
+    const {back = true}= props;
+
     const navigation = useNavigation();
     const navigateTO = (route)=>{
-      navigation.navigate(route)};
-  return (
-
+    navigation.navigate(route)};
+  
+    return (
     <Header
-    backgroundColor='#9098F8'
-    leftComponent={
-      <View >
-        <TouchableOpacity onPress={() => {navigateTO("Home")}}>
- 
-        <View>
-                  <Image
-                    source={require("../assets/home-page.png")}
-                    resizeMode="contain"
-                    style={{
-                      height:25,
-                      witdh:25,
-                      tintColor:"white"
-                    }}
-
-                  />
-                </View>
-        </TouchableOpacity>
-        
-      </View>
-  }
+     backgroundColor='#9098F8'
+     rightComponent={<Icon name="sign-out" type="font-awesome" color={"white"} onPress={back?
+      ()=>setAut():()=>{navigateTO("Perfil")}}/>}
+     leftComponent={
+         <Icon name="home" type="font-awesome"
+          color={"white"}  onPress={() => {navigateTO("Home")}}/>}
       centerComponent={{ text: tittle, style: styles.heading }}
     />
  );}

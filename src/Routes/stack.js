@@ -6,17 +6,21 @@ import { AppTab } from './tab';
 import Tareas from "../Screens/Tareas";
 import { NavigationContainer } from '@react-navigation/native';
 
+import {useSelector} from  'react-redux';
+import {appSelector} from  '../redux/appRedux';
+
+
 
 const Stack=createNativeStackNavigator();
 
 export const AppStack=() =>{
 
-    const sesion=true
+    const USER=useSelector(appSelector.user)
     return(
         
         <Stack.Navigator initialRouteName="Home"screenOptions={{headerShown:false}}>
             {
-                sesion?
+                USER?
         
             <Stack.Screen name ="Main" component ={AppTab}/>
             

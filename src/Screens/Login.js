@@ -6,9 +6,15 @@ import { Button } from '@rneui/themed';
 
 import { TextInput } from 'react-native-gesture-handler';
 
+import {useDispatch} from  'react-redux';
+import {appActions} from  '../redux/appRedux';
 
 
 const Login = () => {
+  const dispatch=useDispatch()
+  const setAut=()=>{
+    dispatch(appActions.setUser({name:"Martin",lastname:"Bravo",job:"Programmer",url:"https://lh3.googleusercontent.com/ogw/AOh-ky2DHme8DkwPyZFVABu_wHQfElID_ejsCL3G9QS6=s32-c-mo"}))
+  }
   return (
     <View style={styles.View1}>
       <Text style={styles.text}>Login</Text>
@@ -31,6 +37,7 @@ const Login = () => {
                 width: 200,
                 marginVertical: 10,
               }}
+              onPress={()=>setAut()}
             />
     </View>
   )
