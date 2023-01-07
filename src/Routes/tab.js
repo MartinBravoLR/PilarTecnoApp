@@ -1,17 +1,22 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import {
   StyleSheet,
 } from 'react-native';
 
+
 //Screens
 import Home from "../Screens/Home";
-import Listas from "../Screens/Listas";
 import Perfil from "../Screens/Perfil";
 import Mapa from "../Screens/Mapa";
+import Listas from "../Screens/Listas";
 
 // Import vector icons
 import { Icon} from '@rneui/base';
+
+
+
 
 const Tab=createBottomTabNavigator();
 

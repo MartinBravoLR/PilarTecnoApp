@@ -4,11 +4,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from "../Screens/Login";
 import { AppTab } from './tab';
 import Tareas from "../Screens/Tareas";
+import ListDetails from "../Screens/ListDetails";
+
 import { NavigationContainer } from '@react-navigation/native';
 
 import {useSelector} from  'react-redux';
 import {appSelector} from  '../redux/appRedux';
-
 
 
 const Stack=createNativeStackNavigator();
@@ -29,7 +30,9 @@ export const AppStack=() =>{
 
             }
          <Stack.Screen name ="Tareas" component ={Tareas}/>
+         <Stack.Screen name ="ListDetails" component ={ListDetails}/>
 
         </Stack.Navigator>
     );
 }
+
